@@ -13,7 +13,7 @@ export default function Header() {
     const confirmed = window.confirm("Bạn có chắc chắn muốn logout không?");
     if (!confirmed) return;
 
-    // Dispatch logout thunk (sẽ xóa state + localStorage)
+    // Dispatch logout thunk (xóa state + localStorage)
     await dispatch(logout());
 
     navigate("/login");
@@ -30,20 +30,37 @@ export default function Header() {
         />
       </a>
 
-      {/* Menu */}
+      {/* Menu chính */}
       <nav className="flex-grow flex justify-center gap-6">
-        <Link to="/" className="text-gray-700 dark:text-gray-300 hover:text-blue-500">
+        <Link
+          to="/"
+          className="text-gray-700 dark:text-gray-300 hover:text-blue-500"
+        >
           🏠 Home
         </Link>
-        <Link to="/todo" className="text-gray-700 dark:text-gray-300 hover:text-blue-500">
+        <Link
+          to="/todo"
+          className="text-gray-700 dark:text-gray-300 hover:text-blue-500"
+        >
           📋 Todo
         </Link>
-        <Link to="/notes" className="text-gray-700 dark:text-gray-300 hover:text-blue-500">
+        <Link
+          to="/notes"
+          className="text-gray-700 dark:text-gray-300 hover:text-blue-500"
+        >
           📒 Notes
         </Link>
+      </nav>
 
+      {/* Toggles + Login/Logout */}
+      <div className="flex items-center gap-4">
+        <LanguageToggle />
+        <ThemeToggle />
         {!user ? (
-          <Link to="/login" className="text-gray-700 dark:text-gray-300 hover:text-blue-500">
+          <Link
+            to="/login"
+            className="text-gray-700 dark:text-gray-300 hover:text-blue-500"
+          >
             🔑 Login
           </Link>
         ) : (
@@ -54,12 +71,6 @@ export default function Header() {
             🚪 Logout
           </button>
         )}
-      </nav>
-
-      {/* Toggles */}
-      <div className="flex gap-4">
-        <LanguageToggle />
-        <ThemeToggle />
       </div>
     </header>
   );

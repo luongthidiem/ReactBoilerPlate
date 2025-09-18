@@ -8,8 +8,5 @@ export default function HomePage() {
     {t("description")}
   </h1>
 </div>
-
-
-
   );
 }
