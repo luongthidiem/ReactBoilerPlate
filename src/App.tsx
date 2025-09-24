@@ -11,6 +11,7 @@ import NotesPage from "@/pages/NotesPage";
 import LoginPage from "@/pages/LoginPage";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
+import Footer from "@/components/Footer";
 
 export default function App() {
   const dispatch = useAppDispatch();
@@ -44,6 +45,8 @@ export default function App() {
         </Routes>
         </ErrorBoundary>
       </main>
+      {/* them footer */}
+      <Footer text="@2025 Luong thi diem"/>
     </div>
   );
 }
