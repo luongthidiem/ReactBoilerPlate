@@ -20,7 +20,7 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full flex items-center justify-between px-6 py-4 bg-gray-100 dark:bg-gray-800 shadow-md transition-colors duration-300">
+    <header className="w-full flex items-center justify-between px-6 py-4 bg-[#70C2B4] shadow-md transition-colors duration-300">
       {/* Logo */}
       <a href="/">
         <img

@@ -9,8 +9,8 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { loading, error } = useAppSelector((state) => state.auth);
-  
- //  Nếu đã login (token tồn tại trong localStorage) thì redirect luôn
+
+  //  Nếu đã login (token tồn tại trong localStorage) thì redirect luôn
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {

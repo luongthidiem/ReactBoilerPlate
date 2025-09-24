@@ -1,7 +1,12 @@
 // src/store/authSlice.ts
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { login as loginApi, getMe, type AuthResponse, type User } from "@/api/auth";
+import {
+  login as loginApi,
+  getMe,
+  type AuthResponse,
+  type User,
+} from "@/api/auth";
 
 interface AuthState {
   user: User | null;
@@ -63,21 +68,27 @@ const authSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(login.fulfilled, (state, action: PayloadAction<AuthResponse>) => {
-        state.loading = false;
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        localStorage.setItem("token", action.payload.token);
-      })
+      .addCase(
+        login.fulfilled,
+        (state, action: PayloadAction<AuthResponse>) => {
+          state.loading = false;
+          state.user = action.payload.user;
+          state.token = action.payload.token;
+          localStorage.setItem("token", action.payload.token);
+        },
+      )
       .addCase(login.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || "Login failed";
       })
 
       // load user từ token khi refresh
-      .addCase(loadUserFromToken.fulfilled, (state, action: PayloadAction<User>) => {
-        state.user = action.payload;
-      })
+      .addCase(
+        loadUserFromToken.fulfilled,
+        (state, action: PayloadAction<User>) => {
+          state.user = action.payload;
+        },
+      )
       .addCase(loadUserFromToken.rejected, (state) => {
         state.user = null;
         state.token = null;

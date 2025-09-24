@@ -32,21 +32,21 @@ export default function App() {
       {/* Nội dung chính */}
       <main className="flex-1 p-6">
         <ErrorBoundary>
-        <Routes>
-          {/* Public route */}
-          <Route path="/login" element={<LoginPage />} />
+          <Routes>
+            {/* Public route */}
+            <Route path="/login" element={<LoginPage />} />
 
-          {/* Protected routes */}
-          <Route element={<ProtectedRoute />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/todo" element={<TodoPage />} />
-            <Route path="/notes" element={<NotesPage />} />
-          </Route>
-        </Routes>
+            {/* Protected routes */}
+            <Route element={<ProtectedRoute />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/todo" element={<TodoPage />} />
+              <Route path="/notes" element={<NotesPage />} />
+            </Route>
+          </Routes>
         </ErrorBoundary>
       </main>
       {/* them footer */}
-      <Footer text="@2025 Luong thi diem"/>
+      <Footer text="@2025 Luong thi diem" />
     </div>
   );
 }
